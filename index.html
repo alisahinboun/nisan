@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#ffd9c0" />
+<title>Tuğba & Ali · Nişan Davetiyesi</title>
+<meta name="description" content="Tuğba & Ali nişan törenine davetlisiniz · Zin Haliç" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ===== Global suluboya / SVG filtreleri ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="watercolor">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.018" numOctaves="3" seed="7" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="11" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="0.4"/></filter>
+    <radialGradient id="peachGlow" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#fff4ea"/>
+      <stop offset="55%" stop-color="#ffdfcb"/>
+      <stop offset="100%" stop-color="#f7c8b6"/>
+    </radialGradient>
+  </defs>
+</svg>
+
+<!-- ===== AÇILIŞ: ZARF (Sürpriz) ===== -->
+<div id="envelope-screen" class="envelope-screen">
+  <div class="env-hint-top">Sizin için özel bir haberimiz var…</div>
+
+  <div class="envelope" id="envelope" role="button" tabindex="0"
+       aria-label="Davetiyeyi açmak için dokunun">
+    <div class="env-back"></div>
+
+    <!-- içinden çıkan kart -->
+    <div class="env-letter">
+      <div class="letter-deco">🕊️</div>
+      <p class="letter-script">Tuğba &amp; Ali</p>
+      <p class="letter-sub">nişanlanıyor</p>
+      <span class="letter-line"></span>
+      <p class="letter-tap">açılıyor…</p>
+    </div>
+
+    <div class="env-front"></div>
+    <div class="env-flap" id="env-flap">
+      <!-- mum mührü -->
+      <div class="wax-seal">
+        <span class="wax-initials">T&nbsp;&amp;&nbsp;A</span>
+      </div>
+    </div>
+  </div>
+
+  <button class="env-open-btn" id="env-open-btn">Davetiyeyi Aç ✶</button>
+</div>
+
+
+<!-- ===== ANA İÇERİK ===== -->
+<main id="site" class="site" aria-hidden="true">
+
+  <!-- dekoratif uçuşan kuşlar (JS doldurur) -->
+  <div class="birds-layer" id="birds-layer" aria-hidden="true"></div>
+  <!-- süzülen yapraklar (JS doldurur) -->
+  <div class="petals-layer" id="petals-layer" aria-hidden="true"></div>
+
+  <!-- müzik -->
+  <button class="music-btn" id="music-btn" aria-label="Müziği aç/kapat" title="Müzik">
+    <span class="music-icon">♫</span>
+  </button>
+
+  <!-- ---------- HERO ---------- -->
+  <header class="hero">
+    <svg class="hero-arch" viewBox="0 0 600 760" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <path d="M300 30 C150 30 70 150 70 320 L70 730 L530 730 L530 320 C530 150 450 30 300 30 Z"
+            fill="none" stroke="#e7a78f" stroke-width="2.4" filter="url(#watercolor)" opacity="0.65"/>
+    </svg>
+
+    <!-- üst çiçek dalı -->
+    <div class="floral floral-top"></div>
+
+    <div class="hero-inner reveal">
+      <p class="hero-pre">— birlikte yeni bir başlangıca —</p>
+      <h1 class="hero-names">
+        <span class="name">Tuğba</span>
+        <span class="amp">&amp;</span>
+        <span class="name">Ali</span>
+      </h1>
+      <p class="hero-tag">Nişanlanıyoruz</p>
+      <div class="hero-date">
+        <span class="hd-day" id="hero-date-text">— —</span>
+        <span class="hd-sep">·</span>
+        <span class="hd-place">Zin Haliç</span>
+      </div>
+    </div>
+
+    <!-- alt çiçek dalı -->
+    <div class="floral floral-bottom"></div>
+
+    <a href="#story" class="scroll-cue" aria-label="Aşağı kaydır">
+      <span></span>
+    </a>
+  </header>
+
+  <!-- ---------- KISA NOT / DAVET ---------- -->
+  <section class="invite reveal" id="story">
+    <div class="invite-flower">🌸</div>
+    <h2 class="section-title">Davetlisiniz</h2>
+    <p class="invite-text">
+      Sevginin küçük bir kuş gibi kanat çırptığı,
+      çiçeklerin en tatlı haliyle açtığı bir günde…
+      <br/><br/>
+      Birbirimize <em>“evet”</em> demenin ilk adımını atıyoruz.
+      Bu mutluluğumuzu sizinle, en sevdiklerimizle paylaşmak
+      bizim için bir tutam huzur, bir avuç sevinç olacak.
+    </p>
+    <div class="invite-signature">Tuğba &amp; Ali</div>
+  </section>
+
+  <!-- ---------- GERİ SAYIM ---------- -->
+  <section class="countdown-sec reveal">
+    <h2 class="section-title light">O güne kalan</h2>
+    <div class="countdown" id="countdown" aria-live="polite">
+      <div class="cd-box"><span class="cd-num" id="cd-days">00</span><span class="cd-label">gün</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-hours">00</span><span class="cd-label">saat</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-mins">00</span><span class="cd-label">dakika</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-secs">00</span><span class="cd-label">saniye</span></div>
+    </div>
+    <p class="countdown-done" id="countdown-done" hidden>Bugün o gün! 🎉 Sizi bekliyoruz.</p>
+  </section>
+
+  <!-- ---------- DETAYLAR ---------- -->
+  <section class="details reveal">
+    <h2 class="section-title">Detaylar</h2>
+    <div class="detail-cards">
+      <article class="detail-card">
+        <div class="dc-icon">📅</div>
+        <h3>Tarih</h3>
+        <p id="detail-date">— —</p>
+        <p class="dc-soft" id="detail-time">— —</p>
+      </article>
+      <article class="detail-card">
+        <div class="dc-icon">🤍</div>
+        <h3>Mekân</h3>
+        <p>Zin Haliç</p>
+        <p class="dc-soft">İstanbul</p>
+      </article>
+      <article class="detail-card">
+        <div class="dc-icon">🌿</div>
+        <h3>Kıyafet</h3>
+        <p>Soft &amp; Şık</p>
+        <p class="dc-soft">pastel tonlar makbule geçer</p>
+      </article>
+    </div>
+    <a class="map-btn" id="map-btn" href="https://www.google.com/maps/search/?api=1&query=Zin+Hali%C3%A7"
+       target="_blank" rel="noopener">📍 Yol Tarifi Al</a>
+  </section>
+
+  <!-- ---------- RSVP ---------- -->
+  <section class="rsvp reveal" id="rsvp">
+    <div class="rsvp-bird">🕊️</div>
+    <h2 class="section-title">Geliyor musunuz?</h2>
+    <p class="rsvp-sub">Lütfen bizi haberdar edin, sizi aramızda görmek isteriz.</p>
+
+    <form class="rsvp-form" id="rsvp-form">
+      <div class="field">
+        <label for="r-name">Adınız</label>
+        <input type="text" id="r-name" name="name" required placeholder="Adınız Soyadınız" />
+      </div>
+
+      <div class="field">
+        <span class="field-label">Katılım</span>
+        <div class="choice">
+          <label class="chip"><input type="radio" name="attend" value="Geliyorum" checked /><span>🌷 Geliyorum</span></label>
+          <label class="chip"><input type="radio" name="attend" value="Maalesef gelemiyorum" /><span>🥲 Gelemiyorum</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="r-count">Kaç kişi?</label>
+        <input type="number" id="r-count" name="count" min="1" max="20" value="1" />
+      </div>
+
+      <div class="field">
+        <label for="r-note">Çiftimize not (isteğe bağlı)</label>
+        <textarea id="r-note" name="note" rows="2" placeholder="Sevgi dolu birkaç kelime…"></textarea>
+      </div>
+
+      <button type="submit" class="rsvp-submit">Gönder ✶</button>
+      <p class="rsvp-feedback" id="rsvp-feedback" role="status"></p>
+    </form>
+  </section>
+
+  <!-- ---------- FOOTER ---------- -->
+  <footer class="footer">
+    <div class="footer-flowers">🌸 🕊️ 🌿</div>
+    <p class="footer-names">Tuğba &amp; Ali</p>
+    <p class="footer-soft">sevgiyle hazırlandı · Zin Haliç</p>
+  </footer>
+
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>
