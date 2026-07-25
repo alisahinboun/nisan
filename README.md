@@ -45,13 +45,38 @@ const CONFIG = {
 
 Metinleri değiştirmek için `index.html`, görünümü değiştirmek için `css/style.css`.
 
+## 🏡 Yeni Ev Rehberi (`ev/`)
+
+Nişandan sonrası için ikinci bir sayfa: **çatal kaşıktan televizyona** yeni kurulacak
+bir evin tüm ihtiyaçlarını kapsayan alışveriş rehberi.
+
+- **24 kategori · 216 ürün önerisi** — her kategoride *ekonomik*, *dengeli* ve *premium*
+  bandından **üçer ürün**, toplam 9 alternatif
+- Ürünler Hepsiburada'da **çok değerlendirilen ve yüksek puanlı** (hedef 4,3+) modeller
+  arasından seçildi; hazırlık sırasında birebir görülen puanlar `doğrulandı` rozetiyle işaretli
+- Her kartta kısa **yorum özeti** ve doğrudan **Hepsiburada bağlantısı**
+- Her kategoride "Ne almalı?" ipucu (kaç litre, kaç kg, hangi özellik şart)
+- Arama, bölüm/bütçe filtreleri ve tarayıcıda saklanan **alışveriş listesi** (yazdırılabilir)
+
+Açmak için: `ev/index.html`
+
+> ℹ️ Fiyat yazılmadı — sürekli değiştiği için ürünler yalnızca fiyat bandına yerleştirildi.
+> Puanlar Temmuz 2026 araştırmasına aittir; güncel bilgi için ürün bağlantısına bakın.
+
 ## 📁 Yapı
 
 ```
 nisan/
-├── index.html       # sayfa içeriği
-├── css/style.css    # tema, animasyonlar, suluboya stiller
-├── js/main.js       # zarf açılışı, kuşlar, geri sayım, RSVP, müzik
+├── index.html          # nişan davetiyesi
+├── css/style.css       # tema, animasyonlar, suluboya stiller
+├── js/main.js          # zarf açılışı, kuşlar, geri sayım, RSVP, müzik
+├── ev/                 # 🏡 yeni ev alışveriş rehberi
+│   ├── index.html
+│   ├── css/style.css
+│   └── js/
+│       ├── data-a.js   # beyaz eşya, elektronik, küçük ev aletleri
+│       ├── data-b.js   # mutfak, sofra takımları, ev tekstili
+│       └── app.js      # arama, filtreler, alışveriş listesi
 └── README.md
 ```
 

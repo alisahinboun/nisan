@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#c1663f" />
+<title>Yeni Ev Rehberi · Çatal kaşıktan televizyona</title>
+<meta name="description" content="Evlenip yeni ev kuranlar için kategori kategori ürün rehberi: her ihtiyaç için ekonomik, dengeli ve premium üçer alternatif. Hepsiburada puanları ve yorum özetleriyle." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ══════════ HERO ══════════ -->
+<header class="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="kicker">Tuğba &amp; Ali · Yeni Ev Hazırlığı</p>
+    <h1>Çatal kaşıktan televizyona<br /><em>yeni evin her şeyi</em></h1>
+    <p class="lede">
+      Sıfırdan ev kurarken neyin alınacağını bilmek, hangisini alacağını bilmekten daha zor.
+      Bu rehberde <strong>24 kategoride</strong> ihtiyacınız olan her ürün var — her kategoride
+      <strong>ekonomik</strong>, <strong>dengeli</strong> ve <strong>premium</strong> olmak üzere
+      üçer alternatif, toplam <strong>9 ürün</strong>.
+    </p>
+
+    <div class="stats">
+      <div class="stat"><b id="stat-cat">24</b><span>kategori</span></div>
+      <div class="stat"><b id="stat-prod">216</b><span>ürün önerisi</span></div>
+      <div class="stat"><b>4,3+</b><span>puan hedefi</span></div>
+      <div class="stat"><b id="stat-checked">0</b><span>listemde</span></div>
+    </div>
+
+    <div class="hero-actions">
+      <a class="btn primary" href="#rehber">Rehbere başla ↓</a>
+      <button class="btn ghost" id="open-list">🧾 Alışveriş listem</button>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════ YÖNTEM / ŞEFFAFLIK ══════════ -->
+<section class="wrap">
+  <div class="method">
+    <h2>📌 Bu liste nasıl hazırlandı?</h2>
+    <ul>
+      <li><b>Seçim ölçütü:</b> Her ürün, Hepsiburada'da <b>çok değerlendirilen ve yüksek puanlı</b> (hedef 4,3 ve üzeri) modeller arasından seçildi.</li>
+      <li><b>Puan rozetleri:</b> <span class="badge verified">4,7 ★ · doğrulandı</span> rozeti taşıyan puanlar, hazırlık sırasında Hepsiburada listelerinde <b>birebir görülen</b> değerlerdir. <span class="badge soft">Puanı gör</span> yazan kartlarda puan tek tek doğrulanamadı — güncel puanı görmek için karttaki bağlantıya tıklayın.</li>
+      <li><b>Yorum özetleri:</b> Kartlardaki özetler, Hepsiburada kullanıcı değerlendirmelerinden derlendi. Tırnak içindeki cümleler gerçek kullanıcı yorumlarından alınmıştır. Ürün sayfasındaki <b>yapay zeka yorum özeti</b> ve güncel puan her zaman en doğru kaynaktır.</li>
+      <li><b>Fiyat yok, bant var:</b> Fiyatlar sürekli değiştiği için TL yazmadık. Bunun yerine her ürün <b>ekonomik / dengeli / premium</b> bandına yerleştirildi. Güncel fiyat için ürün bağlantısına tıklayın.</li>
+      <li><b>Tarih:</b> Araştırma Temmuz 2026'da yapıldı. Stok, model ve puanlar zamanla değişir.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════ ARAÇ ÇUBUĞU ══════════ -->
+<div class="toolbar" id="rehber">
+  <div class="wrap toolbar-inner">
+    <div class="search-box">
+      <span aria-hidden="true">🔍</span>
+      <input type="search" id="search" placeholder="Ürün, marka veya kategori ara… (ör. ütü, Philips, tencere)" aria-label="Ara" />
+    </div>
+    <div class="filters">
+      <div class="chipset" id="group-chips" role="group" aria-label="Bölüm filtresi"></div>
+      <div class="chipset" id="tier-chips" role="group" aria-label="Bütçe filtresi">
+        <button class="chip active" data-tier="all">Tümü</button>
+        <button class="chip" data-tier="eko">💰 Ekonomik</button>
+        <button class="chip" data-tier="orta">⚖️ Dengeli</button>
+        <button class="chip" data-tier="pahali">✨ Premium</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ KATEGORİ İÇERİĞİ ══════════ -->
+<main class="wrap" id="catalog"></main>
+
+<p class="empty" id="empty" hidden>Aramanızla eşleşen ürün bulunamadı. Filtreleri temizleyip tekrar deneyin.</p>
+
+<!-- ══════════ ALIŞVERİŞ LİSTESİ PANELİ ══════════ -->
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head">
+    <h2>🧾 Alışveriş listem</h2>
+    <button class="icon-btn" id="close-list" aria-label="Kapat">✕</button>
+  </div>
+  <p class="drawer-note">Beğendiğiniz ürünleri kartlardaki kutucuktan işaretleyin; liste tarayıcınızda saklanır.</p>
+  <div id="list-body"></div>
+  <div class="drawer-foot">
+    <button class="btn ghost" id="print-list">🖨️ Yazdır</button>
+    <button class="btn danger" id="clear-list">Listeyi temizle</button>
+  </div>
+</aside>
+<div class="scrim" id="scrim" hidden></div>
+
+<button class="fab" id="fab" aria-label="Alışveriş listem">
+  🧾<span class="fab-count" id="fab-count">0</span>
+</button>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="foot">
+  <div class="wrap">
+    <p><b>Kaynak:</b> Ürün adları, puanlar ve yorum alıntıları Hepsiburada ürün ve kategori sayfalarından derlenmiştir.</p>
+    <p class="fine">
+      Bu sayfa bağımsız bir alışveriş rehberidir; Hepsiburada ile bir bağlantısı yoktur ve hiçbir bağlantı komisyon içermez.
+      Puanlar ve fiyatlar zamanla değişir — satın almadan önce ürün sayfasındaki güncel bilgiyi kontrol edin.
+    </p>
+    <p class="fine">Sevgiyle hazırlandı 🤍 · <a href="../index.html">Nişan davetiyesine dön</a></p>
+  </div>
+</footer>
+
+<script src="js/data-a.js"></script>
+<script src="js/data-b.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
